@@ -1,0 +1,30 @@
+---
+# Install Ansible
+#
+# Parameters:
+#
+# ansible_pip_user: ansible
+
+- name: Create ansible user 
+  ansible.builtin.user:
+    name: "{{ ansible_pip_user }}"
+    state: present
+
+- name: Install python3
+  ansible.builtin.yum:
+    name:
+      - python3
+      - python3-pip
+
+- name: Upgrade pip
+  ansible.builtin.pip:
+    name: pip
+    extra_args: --upgrade
+    executable: pip3
+
+- name: Install ansible
+  ansible.builtin.pip:
+    name: ansible
+    executable: pip3
+  become: yes
+  become_user: "{{ ansible_pip_user }}"

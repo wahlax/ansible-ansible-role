@@ -1,0 +1,10 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  role_name: ansible
+  author: wahlax
+  description: Ansible install for linux
+  company: WAHLAX LLC
+  license: MIT
